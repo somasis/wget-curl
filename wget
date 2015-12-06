@@ -89,10 +89,12 @@ Compile:
 Link:
     ${wget_compile}
 EOF
+    exit 0
 }
 
 wget_help() {
     echo "yep"
+    exit 0
 }
 
 set -- $(getopt -n wget -o 'VhcO:T:t:qH:' -l 'version,help,continue,output-document:,timeout:,tries:,quiet,post-data:,post-file:,header:' -- $@)
