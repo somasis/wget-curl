@@ -95,9 +95,8 @@ wget_help() {
     echo "yep"
 }
 
-echo "$0 $@" >&2
 set -- $(getopt -n wget -o 'VhcO:T:t:qH:' -l 'version,help,continue,output-document:,timeout:,tries:,quiet,post-data:,post-file:,header:' -- $@)
-echo "$@" >&2
+echo "$0 $@" >&2
 while [[ $# -ne 0 ]];do
     case "$1" in
         --) shift;urls="$@" ;;
@@ -115,7 +114,7 @@ while [[ $# -ne 0 ]];do
     shift
 done
 
-default='-L --remote-name-all -i'
+default='-# -L --remote-name-all'
 
 eval curl ${default} ${continue} ${output} ${timeout} ${tries} ${quiet} ${post_data} ${post_file} -- ${urls}
 
